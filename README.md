@@ -40,4 +40,5 @@ This step involves activating the assistant to process the messages in the threa
     •	It evaluates the user's messages.
     •	It automatically invokes the relevant tools based on the content of the messages and the assistant's configuration.
 
+**Note from Open AI**: By default, a Run goes into the queued state. You can periodically retrieve the Run to check on its status to see if it has moved to completed.
 
