@@ -21,10 +21,11 @@ The complete source code can be downloaded from the following GitHub repository:
 
 In this demo, we will create an interactive chat assistant in .NET Core. Let’s discuss the steps involved to invoke different Assistant API’s. 
 
-**Step 1: Create an Assistant**: 
+**Step 1: Verify Assistant**: 
 
 This is the initial setup step where you define the characteristics of your AI assistant. 
-Since we already set up new assistant in the prerequisite step above, we will need an API call to fetch this assistant and create an assistant object to be used in further step.
+Since we already set up new assistant in the prerequisite step above, we will need an API call to verify the assistant by passing the assistant Id.
+Note, we can create a new assistant object by calling Assistants POST API. However, for this demo, we will be fetching the assistants id from Open AI Playground and do the basic validation.
 
 **Step 2: Create a Thread:** 
 When a user initiates a conversation with the assistant, a "thread" is created. This thread can be seen as a continuous conversation stream to which both the user and the assistant contribute.
