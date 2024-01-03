@@ -1,4 +1,4 @@
-# OpenAI
+# OpenAI Assistants API’
 
 **OpenAI’s Assistants API’s - A hands-on demo in .NET CORE to build interactive Chat application **
 
