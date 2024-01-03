@@ -146,8 +146,8 @@ namespace AssistantsAPI.Controllers
                                 Console.WriteLine($"ID: {data.Id}, Role: {data.Role}");
                                 foreach (var content in data.Content)
                                 {
-                                    Console.WriteLine($"Content Type: {content.Type}, Value: {content.Text.Value}");
-                                    var ct = content.Text.Value;
+                                    // Print response from the API
+                                    Console.WriteLine($"Content Type: {content.Type}, Value: {content.Text.Value}");                                   
 
                                 }
                             }
