@@ -41,7 +41,9 @@ namespace AssistantsAPI.Controllers
 
             var assistantVersion = "assistants=v1";
             Assistant assistant = null;
+            
             // Step 1 : Create assistant object
+            
             using (HttpClient client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Add("Authorization", $"Bearer {apiKey}");
@@ -56,7 +58,8 @@ namespace AssistantsAPI.Controllers
                 }
             }
 
-            // Step 2 : Create thread object and attach message
+            // Step 2 : Create a new thread object and attach message
+            
             var requestData = new
             {
                 messages = new[]
@@ -85,7 +88,7 @@ namespace AssistantsAPI.Controllers
                 Console.WriteLine(responseBody);
             }
 
-            // Step 3 : 
+            // Step 3 : Create a new Run object
 
             string runId = string.Empty;
             // Create the JSON payload
@@ -115,7 +118,7 @@ namespace AssistantsAPI.Controllers
 
             }
 
-            // Step 4 Retrieve Run AND CHECK THE RUN STATUS
+            // Step 4 Retrieve Run object and check the run status
 
             using (HttpClient client = new HttpClient())
             {
@@ -125,7 +128,9 @@ namespace AssistantsAPI.Controllers
                 response.EnsureSuccessStatusCode();
                 if (response.IsSuccessStatusCode)
                 {
+                    
                     // STEP 5 : Display Assistant Response
+                    
                     using (HttpClient clientMessage = new())
                     {
                         clientMessage.DefaultRequestHeaders.Add("Authorization", $"Bearer {apiKey}");
@@ -196,16 +201,12 @@ namespace AssistantsAPI.Controllers
 
         public class Data
         {
-            public string Id { get; set; }
-            public string Object { get; set; }
-            public long CreatedAt { get; set; }
+            public string Id { get; set; }            
             public string ThreadId { get; set; }
             public string Role { get; set; }
             public List<Content> Content { get; set; }
-            public List<string> FileIds { get; set; }
             public string AssistantId { get; set; }
-            public string RunId { get; set; }
-            public Metadata Metadata { get; set; }
+            public string RunId { get; set; }            
         }
 
         public class Content
