@@ -34,28 +34,29 @@ namespace AssistantsAPI.Controllers
         [HttpPost]
         public async void Post([FromBody] string value)
         {
-            var apiKey = "";
-            var allAssitantsAPIURL = "https://api.openai.com/v1/assistants"; // Returns list of all assistants
+            var apiKey = ""; // Get the API Key from Open AI Account
+            var assistant_id=""; // Get the assistant id from Open AI Account under "Assistants" menu.
+
+            var allAssitantsAPIURL = "https://api.openai.com/v1/assistants/" + assistantId; // Returns list of all assistants
             var threadAPIUrl = "https://api.openai.com/v1/threads"; // Returns list of all assistants
             var runAPIUrl = "https://api.openai.com/v1/threads/runs";
 
             var assistantVersion = "assistants=v1";
             Assistant assistant = null;
-            
-            // Step 1 : Create assistant object
-            
+
+            // Step 1 : Verify the assistant object
             using (HttpClient client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Add("Authorization", $"Bearer {apiKey}");
                 client.DefaultRequestHeaders.Add("OpenAI-Beta", $"{assistantVersion}");
                 HttpResponseMessage response = await client.GetAsync(allAssitantsAPIURL);
                 string responseContent = await response.Content.ReadAsStringAsync();
-                var assistantList = JsonConvert.DeserializeObject<AssistantList>(responseContent);
+                var assistantList = JsonConvert.DeserializeObject<Assistant>(responseContent);
 
-                if (response.IsSuccessStatusCode)
-                {
-                    assistant = assistantList.Data[0];
-                }
+                if (assistantList == null)
+                    throw new Exception("Invalid assistants");
+
+               
             }
 
             // Step 2 : Create a new thread object and attach message
