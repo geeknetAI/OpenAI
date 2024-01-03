@@ -23,9 +23,8 @@ In this demo, we will create an interactive chat assistant in .NET Core. Let’s
 
 **Step 1: Create an Assistant**: 
 
-This is the initial setup step where you define the characteristics of your AI assistant. It involves:
-•	Defining Custom Instructions: Specify how the assistant should behave or respond to certain types of queries.
-•	Picking a Model: Choose the AI model (like GPT-3 or GPT-4) that your assistant will use to understand and generate responses.
+This is the initial setup step where you define the characteristics of your AI assistant. 
+Since we already set up new assistant in the prerequisite step above, we will need an API call to fetch this assistant and create an assistant object to be used in further step.
 
 **Step 2: Create a Thread:** 
 When a user initiates a conversation with the assistant, a "thread" is created. This thread can be seen as a continuous conversation stream to which both the user and the assistant contribute.
