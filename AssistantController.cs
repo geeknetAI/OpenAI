@@ -37,7 +37,7 @@ namespace AssistantsAPI.Controllers
             var apiKey = ""; // Get the API Key from Open AI Account
             var assistant_id=""; // Get the assistant id from Open AI Account under "Assistants" menu.
 
-            var allAssitantsAPIURL = "https://api.openai.com/v1/assistants/" + assistantId; // Returns list of all assistants
+            var allAssitantsAPIURL = "https://api.openai.com/v1/assistants/" + assistant_id; // Returns list of all assistants
             var threadAPIUrl = "https://api.openai.com/v1/threads"; // Returns list of all assistants
             var runAPIUrl = "https://api.openai.com/v1/threads/runs";
 
